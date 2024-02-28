@@ -16,7 +16,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.zitheonsoft.attendancecontrol.schedules.zitheonsoftattendancecontrolschedules.entities.Schedule;
 import com.zitheonsoft.attendancecontrol.schedules.zitheonsoftattendancecontrolschedules.services.IScheduleService;
-import com.zitheonsoft.attendancecontrol.schedules.zitheonsoftattendancecontrolschedules.utils.ResquestValidation;
 import com.zitheonsoft.attendancecontrol.schedules.zitheonsoftattendancecontrolschedules.utils.WrapperResponse;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -32,9 +31,6 @@ public class ScheduleController {
 
     @Autowired
     private IScheduleService scheduleService;
-
-    @Autowired
-    private ResquestValidation resquestValidation;
 
     @PostMapping
     public ResponseEntity<WrapperResponse<Schedule>> create(@Valid @RequestBody Schedule schedule,
