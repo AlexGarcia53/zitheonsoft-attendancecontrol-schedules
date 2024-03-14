@@ -30,7 +30,6 @@ public class SecurityConfig {
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         return http.csrf(AbstractHttpConfigurer::disable)
                 .authorizeHttpRequests(auth -> auth
-                        .requestMatchers(HttpMethod.GET, "/api/schedules/**").permitAll()
                         .requestMatchers(HttpMethod.GET).hasAnyAuthority("EMPLOYEE", "ADMIN")
                         .requestMatchers(HttpMethod.POST).hasAuthority("ADMIN")
                         .requestMatchers(HttpMethod.PUT).hasAuthority("ADMIN")
